@@ -1,0 +1,69 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    List<Object> menuItems = new List<Object>();
+
+    menuItems.Add(new
+    {
+        url = "/Dashboard/Profile.cshtml"
+    });
+
+    menuItems.Add(new
+    {
+        text = "General",
+        separator = true,
+       
+    });
+    menuItems.Add(new
+    {
+        text = "Dashboard",
+        url = "/",
+        iconCss = "fas fa-box"
+       
+    }); 
+    menuItems.Add(new
+    {
+        text = "Categories",
+        url = "/Category",
+        iconCss = "fas fa-folder"
+       
+    });
+    menuItems.Add(new
+    {
+        text = "Transactions",
+        url = "/Transaction",
+        iconCss = "fas fa-exchange-alt"
+    }); 
+
+   
+   
+}
+
+<ejs-sidebar id="sidebar" width="290px" enableDock dockSize="110px">
+    <e-content-template>
+        <div class="logo-wrapper">
+            
+            <div class="w-100"></div>
+            <i id="sidebar-toggler" class=""></i>
+        </div>
+
+        <div class="profile-wrapper">
+            <img class="profile-pic" src="/frodo.jpg" alt="" />
+            <div class="titles d-flex flex-column ps-3">
+                <h6 class="mb-0">SpendSmart</h6>
+                <span class="text-muted">Frodo Baggins</span>
+            </div>
+        </div>
+        <ejs-menu class="mt-5" id="menu" orientation="Vertical" items="menuItems" hamburgerMode></ejs-menu>
+    </e-content-template>
+</ejs-sidebar>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        dockBar = document.getElementById('sidebar').ej2_instances[0];
+        documennt.getElementById('sidebar-toggler').onclick = function () {
+            dockbar.toggle();
+        };
+    });
+</script>
